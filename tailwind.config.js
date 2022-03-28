@@ -10,5 +10,8 @@ module.exports = {
         },
         extend: {},
     },
+    colors: {
+        backgroundSecondary: "#fafafa",
+    },
     plugins: [],
 };
