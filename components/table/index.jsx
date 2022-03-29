@@ -7,13 +7,14 @@ import PriceLine from "../ui/PriceLine/PriceLine";
 function Table({ data }) {
   return (
     <div style={{ direction: "ltr" }}>
-      <div className="flex p-2 bg-gray-100 rounded-md">
-        <span className="grow basis-[30%] shrink">ارز دیجیتال</span>
-        <span className="grow basis-[30%] shrink">قیمت جهانی</span>
-        <span className="grow basis-[30%] shrink">ارزش بازار</span>
-        <span className="">نمودار</span>
-        <span className="">تغییرات</span>
-        <span className="">نشان کردن</span>
+      <div className=" p-2 bg-gray-100 rounded-md hidden md:flex">
+        <span className="grow basis-[30%] shrink py-[14px] px-[16px]">ارز دیجیتال</span>
+        <span className="grow basis-[30%] shrink py-[14px] px-[16px] text-center"> قیمت خرید</span>
+        <span className="grow basis-[30%] shrink py-[14px] px-[16px] text-center"> قیمت فروش</span>
+        <span className="py-[14px] px-[16px] min-w-[148px] text-center">نمودار</span>
+        <span className="py-[14px] px-[16px] min-w-[148px] text-center">تغییرات</span>
+        <span className="py-[14px] px-[16px] w-[120px] text-center  whitespace-nowrap">نشان کردن</span>
+        {/* <span className="grow basis-[30%] shrink">ارزش بازار</span> */}
       </div>
       {data.result.items.map((item, index) => (
         <>
