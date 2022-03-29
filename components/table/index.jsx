@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React from "react";
 import { AiOutlineStar } from "react-icons/ai";
+import ChartApp from "../ui/Chart/Chart";
+
 import PriceLine from "../ui/PriceLine/PriceLine";
 function Table({ data }) {
   return (
@@ -31,7 +33,7 @@ function Table({ data }) {
               </div>
             </div>
             <div className="w-[45%]">
-              {true && (
+              {false && (
                 <>
                   <div className="">
                     <PriceLine
@@ -44,7 +46,29 @@ function Table({ data }) {
                   </div>
                 </>
               )}
-              {false && <> </>}
+              {true && (
+                <>
+                  <div className="flex items-center">
+                    <div className="w-[50%]">
+                      <ChartApp />
+                    </div>
+                    <div className="ml-1">
+                      <div className="flex">
+                        <span className="mr-1">476741.01</span>
+                        <Image
+                          src="/teter.png"
+                          layout="fixed"
+                          width={14}
+                          height={14}
+                        />
+                      </div>
+                      <span className="text-xs text-gray-600">
+                        MCap,6,181,27M
+                      </span>
+                    </div>
+                  </div>{" "}
+                </>
+              )}
             </div>
             <div className="flex justify-center items-center w-[5%]">
               <AiOutlineStar size={20} />

@@ -8,13 +8,21 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>قیمت لحظه ای | بیت برگ</title>
+        <title>قیمت لحظه‌ای | بیت برگ</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <MenuHeader />
-      <div className="pt-20">
-        <SettingTable />
-        <Table data={dataApiStatic} />
+
+      <div className="px-6 lg:max-w-[1200px]">
+        <MenuHeader />
+        <div className="pt-20">
+          <div className="items-center hidden mb-4 md:flex">
+            <h1 className="text-xl font-bold">قیمت لحظه‌ای</h1>
+            <div className="w-[10px] h-[10px] rounded-full bg-yellow-400 mr-5"></div>
+            <span className="mr-2 text-gray-500">{`${"۲۹۳"} ارز دیجیتال`}</span>
+          </div>
+          <SettingTable />
+          <Table data={dataApiStatic} />
+        </div>
       </div>
     </>
   );
