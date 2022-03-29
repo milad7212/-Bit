@@ -8,7 +8,7 @@ function Table({ data }) {
       {data.result.items.map((item, index) => (
         <>
           <div className="flex border-b">
-            <div className="flex flex-grow items-center">
+            <div className="flex items-center flex-grow shrink">
               <div className="mx-2">
                 <Image
                   src={item.icon}
@@ -27,21 +27,21 @@ function Table({ data }) {
               </div>
             </div>
             <div className="w-[45%]">
-
-              {true && (<> 
-              <div className="">
-                <PriceLine price={item.price *data.result.meta.prices.buy} buy/>
-                <PriceLine price={item.price *data.result.meta.prices.sell} />
-                
-              </div>
-              
-              
-               </>)}
-              {false && (<>  </>)}
-              
-              
-              
-              </div>
+              {true && (
+                <>
+                  <div className="">
+                    <PriceLine
+                      price={item.price * data.result.meta.prices.buy}
+                      buy
+                    />
+                    <PriceLine
+                      price={item.price * data.result.meta.prices.sell}
+                    />
+                  </div>
+                </>
+              )}
+              {false && <> </>}
+            </div>
             <div className="flex justify-center items-center w-[5%]">
               <AiOutlineStar size={20} />
             </div>
