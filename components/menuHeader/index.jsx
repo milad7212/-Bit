@@ -7,7 +7,7 @@ import Button from "../ui/‌Button/Button";
 
 function MenuHeader() {
   return (
-    <div className="border-b shadow-md pl-[12px] p-2 ">
+    <div className="border-b shadow-md pl-[12px] p-2 fixed left-0 right-0 bg-white z-10  ">
       <div className="flex items-center md:hidden ">
         <div className="p-[12px] cursor-pointer">
           <AiOutlineMenu size={25} />

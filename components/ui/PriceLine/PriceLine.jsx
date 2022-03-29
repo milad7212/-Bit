@@ -15,10 +15,12 @@ function PriceLine({ price = "price", buy }) {
           )}
           <span className="text-xs font-normal text-slate-400">:</span>
         </div>
-        <span className="basis-[85px]  overflow-hidden text-left">
-          {Math.round(price)}
+        <span className="basis-[88px]  overflow-hidden text-left">
+          {Math.round(price)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
         </span>
-        <span className="mr-1 text-xs font-normal text-slate-400">تومان</span>
+        <span className="mr-2 text-xs font-normal text-slate-400">تومان</span>
       </div>
     </>
   );

@@ -7,8 +7,8 @@ function Table({ data }) {
     <div style={{ direction: "ltr" }}>
       {data.result.items.map((item, index) => (
         <>
-          <div className="flex border-b">
-            <div className="flex items-center flex-grow shrink">
+          <div className="flex py-1 border-b">
+            <div className="flex items-center flex-grow shrink max-w-[45%] md:max-w-[100%]">
               <div className="mx-2">
                 <Image
                   src={item.icon}
@@ -21,8 +21,12 @@ function Table({ data }) {
               <div className="">
                 <h2>{item.enName}</h2>
                 <div className="flex">
-                  <span>{index + 1}</span>
-                  <span>{item.coin}</span>
+                  <div className="w-[15px] h-[15px] bg-gray-300 flex items-center justify-center rounded-sm mr-1">
+                    <span className="mt-1 text-sm text-gray-600">
+                      {index + 1}
+                    </span>
+                  </div>
+                  <span className="text-sm text-gray-600">{item.coin}</span>
                 </div>
               </div>
             </div>
