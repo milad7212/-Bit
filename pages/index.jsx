@@ -12,7 +12,7 @@ export default function Home() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
-      <div className="px-6 lg:max-w-[1200px]">
+      <div className="px-6 ">
         <MenuHeader />
         <div className="pt-20">
           <div className="items-center hidden mb-4 md:flex">
