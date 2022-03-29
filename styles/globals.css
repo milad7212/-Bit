@@ -1,8 +1,26 @@
+@font-face {
+    font-family: Bakh;
+    font-style: normal;
+    font-weight: normal;
+    src: url("../public/assets/fonts/Yekan-05.ttf") format("truetype");
+}
+@font-face {
+    font-family: Bakh;
+    font-style: normal;
+    font-weight: 800;
+    src: url("../public/assets/fonts/Yekan-07.ttf") format("truetype");
+}
+@font-face {
+    font-family: Bakh;
+    font-style: normal;
+    font-weight: 900;
+    src: url("../public/assets/fonts/Yekan-08.ttf") format("truetype");
+}
 html, body {
     padding: 0;
     direction: rtl;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: Bakh;
 }
 a {
     color: inherit;
