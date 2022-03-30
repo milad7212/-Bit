@@ -4,13 +4,15 @@ import { AiOutlineStar } from "react-icons/ai";
 
 function SettingTable() {
   return (
-    <div className="mx-4 mb-4 md:flex">
+    <div className="mb-4 md:flex">
       <InputSearch />
       <div className="flex md:grow">
         <button className="ml-2 border rounded-md md:basis-[16.66%] md:max-w-[16.66%]">
           <div className="flex items-center p-3">
             <AiOutlineStar size={18} color="#999DA4" />
-            <span className="mr-2 text-sm font-bold ">نشان شده ها</span>
+            <span className="mr-2 text-sm font-bold whitespace-nowrap">
+              نشان شده ها
+            </span>
           </div>
         </button>
         <button className="ml-2 border rounded-md sm:hidden md:basis-[16.66%] md:max-w-[16.66%]">
