@@ -3,8 +3,26 @@ import Table from "../components/table";
 import { dataApiStatic } from "../components/data.js";
 import SettingTable from "../components/SettingTable/SettingTable";
 import Head from "next/head";
+import axios from "axios";
+import { useState, useEffect } from "react";
+
 export default function Home() {
+  const [dataTable, setdataTable] = useState({});
+  useEffect(() => {
+    axios
+      .get("https://api.bitbarg.me/api/v1/currencies")
+      .then(({ data, status }) => {
+        if (status == 200) {
+          console.log(",moooooo :>> ", ",moooooo");
+          setdataTable(data);
+        }
+        console.log("res", status, data);
+      })
+      .catch((e) => console.log(e));
+  }, []);
+
   console.log("dataApiStatic :>> ", dataApiStatic.result);
+
   return (
     <>
       <Head>
@@ -20,7 +38,7 @@ export default function Home() {
             <span className="mr-2 text-gray-500">{`${"۲۹۳"} ارز دیجیتال`}</span>
           </div>
           <SettingTable />
-          <Table data={dataApiStatic} />
+          {dataTable.result && <Table data={dataTable} />}
         </div>
       </div>
     </>
