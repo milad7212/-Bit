@@ -7,19 +7,33 @@ import PriceLine from "../ui/PriceLine/PriceLine";
 function Table({ data }) {
   return (
     <div style={{ direction: "ltr" }}>
-      <div className=" p-2 bg-gray-100 rounded-md hidden md:flex">
-        <span className="grow basis-[30%] shrink py-[14px] px-[16px]">ارز دیجیتال</span>
-        <span className="grow basis-[30%] shrink py-[14px] px-[16px] text-center"> قیمت خرید</span>
-        <span className="grow basis-[30%] shrink py-[14px] px-[16px] text-center"> قیمت فروش</span>
-        <span className="py-[14px] px-[16px] min-w-[148px] text-center">نمودار</span>
-        <span className="py-[14px] px-[16px] min-w-[148px] text-center">تغییرات</span>
-        <span className="py-[14px] px-[16px] w-[120px] text-center  whitespace-nowrap">نشان کردن</span>
+      <div className="hidden p-2 rounded-md bg-gray-50 md:flex">
+        <span className="grow basis-[30%] shrink py-[14px] px-[16px]">
+          ارز دیجیتال
+        </span>
+        <span className="grow basis-[30%] shrink py-[14px] px-[16px] text-center">
+          {" "}
+          قیمت خرید
+        </span>
+        <span className="grow basis-[30%] shrink py-[14px] px-[16px] text-center">
+          {" "}
+          قیمت فروش
+        </span>
+        <span className="py-[14px] px-[16px] min-w-[148px] text-center">
+          نمودار
+        </span>
+        <span className="py-[14px] px-[16px] min-w-[148px] text-center">
+          تغییرات
+        </span>
+        <span className="py-[14px] px-[16px] w-[120px] text-center  whitespace-nowrap md:w-[94px]">
+          نشان کردن
+        </span>
         {/* <span className="grow basis-[30%] shrink">ارزش بازار</span> */}
       </div>
       {data.result.items.map((item, index) => (
         <>
           <div className="flex py-1 border-b">
-            <div className="flex items-center flex-grow shrink max-w-[45%] md:max-w-[100%]">
+            <div className="flex items-center  grow shrink max-w-[45%]  md:basis-[30%]">
               <div className="mx-2">
                 <Image
                   src={item.icon}
@@ -41,7 +55,31 @@ function Table({ data }) {
                 </div>
               </div>
             </div>
-            <div className="w-[45%]">
+            <div className="hidden md:flex md:basis-[30%] md:grow md:shrink md:justify-center md:items-center">
+              <span className="text-xs font-normal text-slate-400 ">خرید </span>
+              <span className="basis-[88px]  overflow-hidden text-left">
+                {Math.round(12345678)
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              </span>
+            </div>
+            <div className="hidden md:flex md:basis-[30%] md:grow md:shrink md:justify-center md:items-center">
+              <span className="text-xs font-normal text-slate-400 ">خرید </span>
+              <span className="basis-[88px]  overflow-hidden text-left">
+                {Math.round(12345678)
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              </span>
+            </div>
+            {/* chart */}
+            <div className="hidden md:flex md:justify-center md:items-center h-[40px] text-center min-w-[148px] grow-0 shrink-0">
+              نمودار
+            </div>
+            {/* changes */}
+            <div className="hidden md:flex md:justify-center md:items-center h-[40px] text-center min-w-[148px] grow-0 shrink-0">
+              نمودار
+            </div>
+            <div className="w-[45%] md:hidden ">
               {false && (
                 <>
                   <div className="">
@@ -79,7 +117,7 @@ function Table({ data }) {
                 </>
               )}
             </div>
-            <div className="flex justify-center items-center w-[5%]">
+            <div className="flex justify-center items-center w-[5%] md:w-[94px]">
               <AiOutlineStar size={20} />
             </div>
           </div>
