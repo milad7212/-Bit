@@ -3,7 +3,7 @@ import InputSearch from "../ui/InputSearch/InputSearch";
 import { AiOutlineStar } from "react-icons/ai";
 import { useState } from "react";
 
-function SettingTable() {
+function SettingTable({ handelChangeUnit, handelSort }) {
   const [itemSelected, setItemSelected] = useState(true);
   return (
     <>
@@ -32,15 +32,16 @@ function SettingTable() {
           <select
             className="hidden p-2 ml-2 text-gray-500 bg-white border rounded-md outline-none sm:inline-block md:ml-5"
             name="price"
+            onChange={(el) => handelSort(el.target.value)}
             id="price"
           >
-            <option className="text-gray-900" value="noSelect">
+            <option className="text-gray-900" value="0">
               ترتیب براساس
             </option>
-            <option className="text-gray-900" value="minPrice">
+            <option className="text-gray-900" value="1">
               کمترین قیمت
             </option>
-            <option className="text-gray-900" value="maxPrice">
+            <option className="text-gray-900" value="2">
               بیشترین قیمت
             </option>
           </select>
@@ -52,7 +53,10 @@ function SettingTable() {
                   : "#fff",
               }}
               className="ml-2 rounded-md grow"
-              onClick={() => setItemSelected(true)}
+              onClick={() => {
+                handelChangeUnit("toman");
+                setItemSelected(true);
+              }}
             >
               <div className="flex items-center justify-center p-3">
                 <span
@@ -72,7 +76,10 @@ function SettingTable() {
                   : "#fff",
               }}
               className="ml-2 rounded-md grow"
-              onClick={() => setItemSelected(false)}
+              onClick={() => {
+                handelChangeUnit("tether");
+                setItemSelected(false);
+              }}
             >
               <div className="flex items-center justify-center p-3">
                 <span
