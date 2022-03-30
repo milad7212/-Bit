@@ -32,11 +32,6 @@ export default function Home() {
       <MenuHeader />
       <div className="relative md:flex items-center justify-center bg-cover bg-[url('/background.png')]">
         <div className="md:w-[1200px] relative bg-white shadow-xl rounded-lg p-[32px] my-[50px] md:my-[90px] ">
-          <div className="items-center hidden mb-4 md:flex">
-            <h1 className="text-3xl font-bold">قیمت لحظه‌ای</h1>
-            <div className="w-[10px] h-[10px] rounded-full bg-yellow-400 mr-5"></div>
-            <span className="mr-2 text-gray-500">{`${"۲۹۳"} ارز دیجیتال`}</span>
-          </div>
           <SettingTable />
           {dataTable.result && <Table data={dataTable} />}
         </div>
