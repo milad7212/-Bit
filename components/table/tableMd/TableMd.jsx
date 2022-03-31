@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import { AiFillCaretUp } from "react-icons/ai";
 import { NumberApp, NumberAppRound } from "../../../utils/NumberApp";
 
 const ItemTable = ({ content, children, unit }) => {
@@ -56,8 +57,15 @@ function TableMd({ item, data, unitTable }) {
       </div>
       {/* changes */}
       <div className="hidden md:flex md:justify-center md:items-center h-[40px] text-center min-w-[148px] grow-0 shrink-0">
+        
+        <span className=" font-bold text-green-500 flex">
+          <span className="mr-1">
 
-        1.67
+        <AiFillCaretUp/>
+          </span>
+            {`1.67 %`}
+        
+        </span>
       </div>
     </>
   );

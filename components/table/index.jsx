@@ -40,7 +40,7 @@ function Table({ data, unitTable }) {
       {data.result.items.map((item, index) => (
         <>
           <div key={index} className="flex  border-b py-4">
-            <div className="flex items-center  grow shrink   md:basis-[30%]">
+            <div className="flex items-center  grow shrink max-w-[45%]   md:basis-[30%]">
               <div className="mx-2">
                 <Image
                   src={item.icon}
