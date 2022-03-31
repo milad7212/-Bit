@@ -42,6 +42,17 @@ export default function Home() {
     }
     
   };
+
+  const handelSearch=async(q)=>{
+    
+    const { data, status } = await axios.get(BaseUrl,{params:{
+      page:1,
+      q
+    }});
+    if (status == 200) {
+      setDataTable(data);
+    }
+  }
   return (
     <>
       <Head>
@@ -54,6 +65,7 @@ export default function Home() {
           <SettingTable
             handelChangeUnit={handelChangeUnit}
             handelSort={handelSort}
+            handelSearch={handelSearch}
           />
           {dataTable.result && <Table unitTable={unitTable} data={dataTable} />}
         </div>

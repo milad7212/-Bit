@@ -3,7 +3,7 @@ import InputSearch from "../ui/InputSearch/InputSearch";
 import { AiOutlineStar } from "react-icons/ai";
 import { useState } from "react";
 
-function SettingTable({ handelChangeUnit, handelSort }) {
+function SettingTable({ handelChangeUnit, handelSort,handelSearch }) {
   const [itemSelected, setItemSelected] = useState(true);
   return (
     <>
@@ -13,7 +13,7 @@ function SettingTable({ handelChangeUnit, handelSort }) {
         <span className="mr-2 text-gray-500">{`${"۲۹۳"} ارز دیجیتال`}</span>
       </div>
       <div className="mb-4 md:flex">
-        <InputSearch />
+        <InputSearch onChange={handelSearch} />
         <div className="flex md:grow">
           <button className="ml-2 border rounded-md md:basis-[16.66%] md:max-w-[16.66%]">
             <div className="flex items-center p-3">
