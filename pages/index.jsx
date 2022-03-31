@@ -61,7 +61,7 @@ export default function Home() {
       </Head>
       <MenuHeader />
       <div className="relative md:flex items-center justify-center bg-cover bg-[url('/background.png')]">
-        <div className="md:w-[1200px] relative bg-white shadow-xl rounded-lg p-[32px] my-[50px] md:my-[90px] ">
+        <div className="md:w-[1200px] relative bg-white shadow-xl rounded-lg py-[32px] px-[4px]  md:p-[32px] my-[50px] md:my-[90px] ">
           <SettingTable
             handelChangeUnit={handelChangeUnit}
             handelSort={handelSort}
