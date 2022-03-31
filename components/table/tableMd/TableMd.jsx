@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { AiFillCaretUp } from "react-icons/ai";
 import { NumberApp, NumberAppRound } from "../../../utils/NumberApp";
+import ChartApp from "../../ui/Chart/Chart";
 
 const ItemTable = ({ content, children, unit }) => {
   return (
@@ -53,7 +54,7 @@ function TableMd({ item, data, unitTable }) {
 
       {/* chart */}
       <div className="hidden md:flex md:justify-center md:items-center h-[40px] text-center min-w-[148px] grow-0 shrink-0">
-        نمودار
+      <ChartApp/>
       </div>
       {/* changes */}
       <div className="hidden md:flex md:justify-center md:items-center h-[40px] text-center min-w-[148px] grow-0 shrink-0">

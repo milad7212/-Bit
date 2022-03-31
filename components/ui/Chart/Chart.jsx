@@ -1,54 +1,21 @@
-import React from "react";
-import Chart from "chart.js/auto";
-import { Line } from "react-chartjs-2";
+import { LineChart, Line } from "recharts";
 
+const data = [
+  {  uv: 400 },
+  {  uv: 300 },
+  {  uv: 300 },
+  {  uv: 200 },
+  {  uv: 278 },
+  {  uv: 189 },
+  
+];
 function ChartApp() {
-  const data = {
-    labels: ['', '','','',''],
-    datasets: [
-      {
-        label: "",
-        data: [10, 11, 12, 15, 19, 5],
-        borderColor: "rgb(75, 192, 192)",
-        backgroundColor: "rgb(75, 192, 192,.5)",
-        fill: true,
-        tension: 1,
-        showLine: false,
-
-        radius: 0,
-      },
-    ],
-  };
   return (
-    <div>
-      <Line
-        datasetIdKey="id"
-        data={data}
-        options={{
-          scales: {
-            xAxes: [
-              {
-                ticks: {
-                  display: false, //this will remove only the label
-                },
-              },
-            ],
-          },
-          bezierCurve: true,
-          legend: {
-            display: true,
-          },
-          tooltips: {
-            callbacks: {
-              label: function (tooltipItem) {
-                console.log(tooltipItem);
-                return tooltipItem.yLabel;
-              },
-            },
-          },
-        }}
-      />
-    </div>
+    <>
+      <LineChart width={100} height={50} data={data}>
+        <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+      </LineChart>
+    </>
   );
 }
 
