@@ -56,7 +56,8 @@ function TableMd({ item, data, unitTable }) {
       </div>
       {/* changes */}
       <div className="hidden md:flex md:justify-center md:items-center h-[40px] text-center min-w-[148px] grow-0 shrink-0">
-        نمودار
+
+        1.67
       </div>
     </>
   );

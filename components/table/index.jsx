@@ -5,10 +5,12 @@ import ChartApp from "../ui/Chart/Chart";
 
 import PriceLine from "../ui/PriceLine/PriceLine";
 import TableMd from "./tableMd/TableMd";
+
+
 function Table({ data, unitTable }) {
   return (
     <div style={{ direction: "ltr" }}>
-      <div className="hidden p-2 rounded-md bg-gray-50 md:flex">
+      <div className="hidden  rounded-md bg-gray-50 md:flex">
         <span className="grow basis-[30%] shrink py-[14px] px-[16px]">
           ارز دیجیتال
         </span>
@@ -32,12 +34,13 @@ function Table({ data, unitTable }) {
         <span className="py-[14px] px-[16px] w-[120px] text-center  whitespace-nowrap md:w-[94px]">
           نشان کردن
         </span>
-        {/* <span className="grow basis-[30%] shrink">ارزش بازار</span> */}
+
+       
       </div>
       {data.result.items.map((item, index) => (
         <>
           <div key={index} className="flex  border-b py-4">
-            <div className="flex items-center  grow shrink max-w-[45%]  md:basis-[30%]">
+            <div className="flex items-center  grow shrink   md:basis-[30%]">
               <div className="mx-2">
                 <Image
                   src={item.icon}
@@ -98,7 +101,7 @@ function Table({ data, unitTable }) {
                 </>
               )}
             </div>
-            <div className="flex justify-center items-center w-[5%] md:w-[94px]">
+            <div className="flex justify-center items-center w-[5%] md:w-[94px] md:min-w-[94px]">
               <AiOutlineStar size={20} />
             </div>
           </div>
