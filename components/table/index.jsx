@@ -32,7 +32,7 @@ function Table({ data }) {
       </div>
       {data.result.items.map((item, index) => (
         <>
-          <div className="flex py-1 border-b">
+          <div key={index} className="flex  border-b py-4">
             <div className="flex items-center  grow shrink max-w-[45%]  md:basis-[30%]">
               <div className="mx-2">
                 <Image
@@ -56,20 +56,23 @@ function Table({ data }) {
               </div>
             </div>
             <div className="hidden md:flex md:basis-[30%] md:grow md:shrink md:justify-center md:items-center">
-              <span className="text-xs font-normal text-slate-400 ">خرید </span>
-              <span className="basis-[88px]  overflow-hidden text-left">
-                {Math.round(12345678)
+              <span className="basis-[90px]  overflow-hidden text-left">
+                {Math.round(item.price * data.result.meta.prices.buy)
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
               </span>
+              <span className="text-xs font-normal text-slate-400 ml-2 ">تومان </span>
+
             </div>
             <div className="hidden md:flex md:basis-[30%] md:grow md:shrink md:justify-center md:items-center">
-              <span className="text-xs font-normal text-slate-400 ">خرید </span>
-              <span className="basis-[88px]  overflow-hidden text-left">
-                {Math.round(12345678)
+              <span className="basis-[90px]  overflow-hidden text-left">
+                {Math.round(item.price * data.result.meta.prices.sell)
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+             
               </span>
+              <span className="text-xs font-normal text-slate-400 ml-2  ">تومان </span>
+
             </div>
             {/* chart */}
             <div className="hidden md:flex md:justify-center md:items-center h-[40px] text-center min-w-[148px] grow-0 shrink-0">

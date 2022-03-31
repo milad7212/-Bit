@@ -30,18 +30,18 @@ function SettingTable({ handelChangeUnit, handelSort }) {
           </button>
 
           <select
-            className="hidden p-2 ml-2 text-gray-500 bg-white border rounded-md outline-none sm:inline-block md:ml-5"
+            className="hidden cursor-pointer p-2 ml-2 text-gray-500 bg-white border rounded-md outline-none sm:inline-block md:ml-5"
             name="price"
             onChange={(el) => handelSort(el.target.value)}
             id="price"
           >
-            <option className="text-gray-900" value="0">
+            <option className="text-gray-900 cursor-pointer" value="0">
               ترتیب براساس
             </option>
-            <option className="text-gray-900" value="1">
+            <option className="text-gray-900 cursor-pointer " value="1">
               کمترین قیمت
             </option>
-            <option className="text-gray-900" value="2">
+            <option className="text-gray-900 cursor-pointer" value="2">
               بیشترین قیمت
             </option>
           </select>

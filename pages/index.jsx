@@ -9,12 +9,12 @@ import { callApi } from "../utils/callApi";
 import { BaseUrl } from "../config";
 
 export default function Home() {
-  const [dataTable, setdataTable] = useState({});
+  const [dataTable, setDataTable] = useState({});
   const [unitTable, setUnitTable] = useState("toman");
   useEffect(() => {
     async function fetchData() {
       const { data, status } = await axios.get(BaseUrl);
-      if (status == 200) setdataTable(data);
+      if (status == 200) setDataTable(data);
     }
     fetchData();
   }, []);
@@ -26,10 +26,10 @@ export default function Home() {
   };
 
   const handelSort = async(sort) => {
-    console.log('sort', sort)
+    
     if(sort== 0) {
       const { data, status } = await axios.get(BaseUrl);
-      if (status == 200) setdataTable(data);
+      if (status == 200) setDataTable(data);
       return
     };
     const { data, status } = await axios.get(BaseUrl,{params:{
@@ -37,7 +37,7 @@ export default function Home() {
       sort
     }});
     if (status == 200) {
-      setdataTable(data);
+      setDataTable(data);
     }
     
   };
