@@ -15,13 +15,14 @@ export default function Home() {
     async function fetchData() {
       const { data, status } = await axios.get(BaseUrl);
       if (status == 200) setDataTable(data);
+      console.log('data', data)
     }
     fetchData();
   }, []);
 
   // functhtions for change table
   const handelChangeUnit = (unit) => {
-    console.log("unit :>> ", unit);
+    
     unit == "toman" ? setUnitTable("toman") : setUnitTable("tether");
   };
 
@@ -54,7 +55,7 @@ export default function Home() {
             handelChangeUnit={handelChangeUnit}
             handelSort={handelSort}
           />
-          {dataTable.result && <Table data={dataTable} />}
+          {dataTable.result && <Table unitTable={unitTable} data={dataTable} />}
         </div>
       </div>
     </>

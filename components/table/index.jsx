@@ -4,7 +4,8 @@ import { AiOutlineStar } from "react-icons/ai";
 import ChartApp from "../ui/Chart/Chart";
 
 import PriceLine from "../ui/PriceLine/PriceLine";
-function Table({ data }) {
+import TableMd from "./tableMd/TableMd";
+function Table({ data, unitTable }) {
   return (
     <div style={{ direction: "ltr" }}>
       <div className="hidden p-2 rounded-md bg-gray-50 md:flex">
@@ -12,12 +13,15 @@ function Table({ data }) {
           ارز دیجیتال
         </span>
         <span className="grow basis-[30%] shrink py-[14px] px-[16px] text-center">
-          {" "}
-          قیمت خرید
+         
+        {unitTable=='toman'? 'قیمت خرید':'قیمت جهانی'}
+
         </span>
         <span className="grow basis-[30%] shrink py-[14px] px-[16px] text-center">
           {" "}
-          قیمت فروش
+
+          {unitTable=='toman'? 'قیمت فروش':'ارزش بازار'}
+
         </span>
         <span className="py-[14px] px-[16px] min-w-[148px] text-center">
           نمودار
@@ -55,35 +59,9 @@ function Table({ data }) {
                 </div>
               </div>
             </div>
-            <div className="hidden md:flex md:basis-[30%] md:grow md:shrink md:justify-center md:items-center">
-              <span className="basis-[90px]  overflow-hidden text-left">
-                {Math.round(item.price * data.result.meta.prices.buy)
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-              </span>
-              <span className="text-xs font-normal text-slate-400 ml-2 ">تومان </span>
-
-            </div>
-            <div className="hidden md:flex md:basis-[30%] md:grow md:shrink md:justify-center md:items-center">
-              <span className="basis-[90px]  overflow-hidden text-left">
-                {Math.round(item.price * data.result.meta.prices.sell)
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-             
-              </span>
-              <span className="text-xs font-normal text-slate-400 ml-2  ">تومان </span>
-
-            </div>
-            {/* chart */}
-            <div className="hidden md:flex md:justify-center md:items-center h-[40px] text-center min-w-[148px] grow-0 shrink-0">
-              نمودار
-            </div>
-            {/* changes */}
-            <div className="hidden md:flex md:justify-center md:items-center h-[40px] text-center min-w-[148px] grow-0 shrink-0">
-              نمودار
-            </div>
+            <TableMd unitTable={unitTable} item={item} data={data} />
             <div className="w-[45%] md:hidden ">
-              {false && (
+              {unitTable == "toman" ? (
                 <>
                   <div className="">
                     <PriceLine
@@ -95,8 +73,7 @@ function Table({ data }) {
                     />
                   </div>
                 </>
-              )}
-              {true && (
+              ) : (
                 <>
                   <div className="flex items-center">
                     <div className="w-[50%]">
@@ -110,6 +87,7 @@ function Table({ data }) {
                           layout="fixed"
                           width={14}
                           height={14}
+                          alt="icon"
                         />
                       </div>
                       <span className="text-xs text-gray-600">
