@@ -6,19 +6,17 @@ import Head from "next/head";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { callApi } from "../utils/callApi";
+import { BaseUrl } from "../config";
 
 export default function Home() {
   const [dataTable, setdataTable] = useState({});
   const [unitTable, setUnitTable] = useState("toman");
-  useEffect(async () => {
-    axios
-      .get("https://api.bitbarg.me/api/v1/currencies")
-      .then(({ data, status }) => {
-        if (status == 200) {
-          setdataTable(data);
-        }
-      })
-      .catch((e) => console.log(e));
+  useEffect(() => {
+    async function fetchData() {
+      const { data, status } = await axios.get(BaseUrl);
+      if (status == 200) setdataTable(data);
+    }
+    fetchData();
   }, []);
 
   // functhtions for change table
@@ -27,16 +25,21 @@ export default function Home() {
     unit == "toman" ? setUnitTable("toman") : setUnitTable("tether");
   };
 
-  const handelSort = (sort) => {
-    console.log("sort :>> ", sort);
-    axios
-      .get(`https://api.bitbarg.me/api/v1/currencies?page=1&sort=${sort}`)
-      .then(({ data, status }) => {
-        if (status == 200) {
-          setdataTable(data);
-        }
-      })
-      .catch((e) => console.log(e));
+  const handelSort = async(sort) => {
+    console.log('sort', sort)
+    if(sort== 0) {
+      const { data, status } = await axios.get(BaseUrl);
+      if (status == 200) setdataTable(data);
+      return
+    };
+    const { data, status } = await axios.get(BaseUrl,{params:{
+      page:1,
+      sort
+    }});
+    if (status == 200) {
+      setdataTable(data);
+    }
+    
   };
   return (
     <>
