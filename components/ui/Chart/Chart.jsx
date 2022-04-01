@@ -10,18 +10,7 @@ import {
   CartesianGrid,
 } from "recharts";
 
-const data = [
-  { uv: 400 },
-  { uv: 300 },
-  { uv: 300 },
-  { uv: 200 },
-  { uv: 278 },
-  { uv: 189 },
-  { uv: 5 },
-  { uv: 70 },
-  { uv: 89 },
-  { uv: 11 },
-];
+
 function ChartApp({dataChart}) {
   console.log('dataChart', dataChart)
   let newDataChart= dataChart.map(e=>{return{v:e}})

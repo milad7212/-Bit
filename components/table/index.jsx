@@ -80,7 +80,7 @@ function Table({ data, unitTable }) {
                 <>
                   <div className="flex items-center">
                     <div className="w-[50%]">
-                      <ChartApp />
+                      <ChartApp  dataChart={item.chart}/>
                     </div>
                     <div className="ml-1">
                       <div className="flex">
