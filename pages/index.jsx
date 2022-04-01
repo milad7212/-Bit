@@ -1,11 +1,11 @@
 import MenuHeader from "../components/menuHeader";
 import Table from "../components/table";
-import { dataApiStatic } from "../components/data.js";
+
 import SettingTable from "../components/SettingTable/SettingTable";
 import Head from "next/head";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { callApi } from "../utils/callApi";
+
 import { BaseUrl } from "../config";
 
 export default function Home() {
