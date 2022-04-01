@@ -54,7 +54,7 @@ function TableMd({ item, data, unitTable }) {
 
       {/* chart */}
       <div className="hidden md:flex md:justify-center md:items-center h-[40px] text-center min-w-[148px] grow-0 shrink-0">
-      <ChartApp/>
+      <ChartApp dataChart={item.chart}/>
       </div>
       {/* changes */}
       <div className="hidden md:flex md:justify-center md:items-center h-[40px] text-center min-w-[148px] grow-0 shrink-0">
