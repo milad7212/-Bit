@@ -12,9 +12,9 @@ import {
 
 
 function ChartApp({dataChart}) {
-  console.log('dataChart', dataChart)
+  
   let newDataChart= dataChart.map(e=>{return{v:e}})
-  console.log('newDataChart', newDataChart)
+ 
   
   return (
     <>

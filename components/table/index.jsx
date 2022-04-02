@@ -1,13 +1,14 @@
 import Image from "next/image";
 import React from "react";
 import { AiOutlineStar } from "react-icons/ai";
+import InfiniteScroll from "react-infinite-scroller";
 import ChartApp from "../ui/Chart/Chart";
 
 import PriceLine from "../ui/PriceLine/PriceLine";
 import TableMd from "./tableMd/TableMd";
 
-
-function Table({ data, unitTable }) {
+function Table({ data, unitTable,meta }) {
+ 
   return (
     <div style={{ direction: "ltr" }}>
       <div className="hidden  rounded-md bg-gray-50 md:flex">
@@ -15,15 +16,11 @@ function Table({ data, unitTable }) {
           ارز دیجیتال
         </span>
         <span className="grow basis-[30%] shrink py-[14px] px-[16px] text-center">
-         
-        {unitTable=='toman'? 'قیمت خرید':'قیمت جهانی'}
-
+          {unitTable == "toman" ? "قیمت خرید" : "قیمت جهانی"}
         </span>
         <span className="grow basis-[30%] shrink py-[14px] px-[16px] text-center">
           {" "}
-
-          {unitTable=='toman'? 'قیمت فروش':'ارزش بازار'}
-
+          {unitTable == "toman" ? "قیمت فروش" : "ارزش بازار"}
         </span>
         <span className="py-[14px] px-[16px] min-w-[148px] text-center">
           نمودار
@@ -34,12 +31,10 @@ function Table({ data, unitTable }) {
         <span className="py-[14px] px-[16px] w-[120px] text-center  whitespace-nowrap md:w-[94px]">
           نشان کردن
         </span>
-
-       
       </div>
-      {data.result.items.map((item, index) => (
-        <>
-          <div key={index} className="flex  border-b py-4">
+    
+        {data.map((item, index) => (
+          <div key={`item_${index}`} className="flex  border-b py-4">
             <div className="flex items-center  grow shrink max-w-[45%]   md:basis-[30%]">
               <div className="mx-2">
                 <Image
@@ -62,17 +57,17 @@ function Table({ data, unitTable }) {
                 </div>
               </div>
             </div>
-            <TableMd unitTable={unitTable} item={item} data={data} />
+            <TableMd unitTable={unitTable} item={item} data={data}  meta={meta}/>
             <div className="w-[45%] md:hidden ">
               {unitTable == "toman" ? (
                 <>
                   <div className="">
                     <PriceLine
-                      price={item.price * data.result.meta.prices.buy}
+                      price={item.price * meta.prices.buy}
                       buy
                     />
                     <PriceLine
-                      price={item.price * data.result.meta.prices.sell}
+                      price={item.price * meta.prices.sell}
                     />
                   </div>
                 </>
@@ -80,7 +75,7 @@ function Table({ data, unitTable }) {
                 <>
                   <div className="flex items-center">
                     <div className="w-[50%]">
-                      <ChartApp  dataChart={item.chart}/>
+                      <ChartApp dataChart={item.chart} />
                     </div>
                     <div className="ml-1">
                       <div className="flex">
@@ -105,8 +100,8 @@ function Table({ data, unitTable }) {
               <AiOutlineStar size={20} />
             </div>
           </div>
-        </>
-      ))}
+        ))}
+      
     </div>
   );
 }

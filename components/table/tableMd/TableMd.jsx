@@ -16,18 +16,18 @@ const ItemTable = ({ content, children, unit }) => {
   );
 };
 
-function TableMd({ item, data, unitTable }) {
+function TableMd({ item, data, unitTable,meta }) {
   return (
     <>
       {unitTable == "toman" ? (
         <>
           <ItemTable
-            content={NumberAppRound(item.price * data.result.meta.prices.buy)}
+            content={NumberAppRound(item.price * meta.prices.buy)}
             unit="تومان"
           />
 
           <ItemTable
-            content={NumberAppRound(item.price * data.result.meta.prices.sell)}
+            content={NumberAppRound(item.price * meta.prices.sell)}
             unit="تومان"
           />
         </>
